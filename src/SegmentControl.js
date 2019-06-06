@@ -20,17 +20,18 @@ export const useSegment = allowMultiSelect => {
         el => el.label === label && el.value === value
       );
 
+      let newSelectedSegments;
+
       if (allowMultiSelect) {
-        const newSelectedSegments = isSelected
+        newSelectedSegments = isSelected
           ? selectedSegments.filter(
               el => el.label !== label && el.value !== value
             )
           : [...selectedSegments, { label, value }];
-        setselectedSegment(newSelectedSegments);
       } else {
-        const newSelectedSegment = isSelected ? [] : [{ label, value }];
-        setselectedSegment(newSelectedSegment);
+        newSelectedSegments = isSelected ? [] : [{ label, value }];
       }
+      setselectedSegment(newSelectedSegments);
     },
     [selectedSegments, allowMultiSelect]
   );
