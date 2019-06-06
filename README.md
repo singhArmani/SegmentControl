@@ -1,2 +1,0 @@
-# SegmentControl
-Created with CodeSandbox
